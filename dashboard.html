@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clip Portal | Dashboard</title>
+    <link rel="stylesheet" href="styles.css?v=3">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js?v=3" defer></script>
+</head>
+
+<body>
+    <div class="background-container">
+        <canvas id="star-canvas"></canvas>
+    </div>
+    <div class="noise-overlay"></div>
+
+    <nav class="glass-panel nav-container">
+        <a href="index.html" class="nav-brand">Clip Portal</a>
+        <div class="nav-links" id="nav-links">
+            <!-- Populated by app.js?v=3 -->
+        </div>
+    </nav>
+
+    <div class="container">
+        <section class="hero-section"
+            style="text-align: left; margin-bottom: 40px; border-bottom: 1px solid var(--glass-border); padding-bottom: 20px;">
+            <h1 style="font-size: 2rem;">Command Center</h1>
+            <p style="color: var(--text-secondary); margin-top: 5px;">Manage your signal transmissions.</p>
+        </section>
+
+        <div class="clip-grid" id="user-clips-grid">
+            <div style="color:white; opacity:0.5; grid-column:span 4; text-align:center;">Retrieving archives...</div>
+        </div>
+    </div>
+</body>
+
+</html>

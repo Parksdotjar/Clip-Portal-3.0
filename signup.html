@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clip Portal | Sign Up</title>
+    <link rel="stylesheet" href="styles.css?v=3">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js?v=3" defer></script>
+</head>
+
+<body>
+    <div class="background-container">
+        <canvas id="star-canvas"></canvas>
+    </div>
+    <div class="noise-overlay"></div>
+
+    <nav class="glass-panel nav-container">
+        <a href="index.html" class="nav-brand">Clip Portal</a>
+        <div class="nav-links" id="nav-links">
+            <!-- Populated by app.js?v=3 -->
+        </div>
+    </nav>
+
+    <div class="container auth-container">
+        <div class="glass-panel auth-card">
+            <h2 class="auth-title">Initialize Access</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label class="form-label" for="email">Email</label>
+                    <input type="email" id="email" class="glass-input" required placeholder="user@example.com">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" class="glass-input" required placeholder="Create password">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" class="glass-input" required
+                        placeholder="Repeat password">
+                </div>
+                <button type="submit" class="glass-btn" style="width: 100%; justify-content: center; margin-top: 10px;">
+                    Create Account
+                </button>
+            </form>
+            <div class="auth-footer">
+                Already have access? <a href="login.html">Log in</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

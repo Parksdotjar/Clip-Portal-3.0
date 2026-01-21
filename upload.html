@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clip Portal | Upload</title>
+    <link rel="stylesheet" href="styles.css?v=3">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js?v=3" defer></script>
+</head>
+
+<body>
+    <div class="background-container">
+        <canvas id="star-canvas"></canvas>
+    </div>
+    <div class="noise-overlay"></div>
+
+    <nav class="glass-panel nav-container">
+        <a href="index.html" class="nav-brand">Clip Portal</a>
+        <div class="nav-links" id="nav-links">
+            <!-- Populated by app.js?v=3 -->
+        </div>
+    </nav>
+
+    <div class="container auth-container" style="display: block; padding-top: 150px;">
+        <div class="glass-panel auth-card" style="max-width: 600px; margin: 0 auto;">
+            <h2 class="auth-title">Transmit Signal</h2>
+            <form id="upload-form">
+                <div class="form-group">
+                    <label class="form-label" for="clip-title">Title</label>
+                    <input type="text" id="clip-title" class="glass-input" required placeholder="Name your broadcast">
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="clip-tags">Tags (optional)</label>
+                    <input type="text" id="clip-tags" class="glass-input" placeholder="space, vibe, glitch">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Video File</label>
+                    <div class="upload-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
+                        <p style="margin-bottom: 10px; opacity: 0.8;">Drag & Drop or Click to Select</p>
+                        <p style="font-size: 0.8rem; color: var(--text-secondary);">MP4, WebM up to 50MB</p>
+                        <input type="file" id="file-input" accept="video/*" style="display: none;">
+                    </div>
+                    <div id="file-name"
+                        style="margin-top: 10px; font-size: 0.85rem; color: var(--success-color); text-align: center;">
+                    </div>
+                </div>
+
+                <div id="upload-progress">
+                    <div id="progress-bar"></div>
+                </div>
+
+                <button type="submit" class="glass-btn" style="width: 100%; justify-content: center; margin-top: 20px;">
+                    Initiate Upload
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Simple drag & drop visual feedback
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+        const fileName = document.getElementById('file-name');
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            if (e.dataTransfer.files.length) {
+                fileInput.files = e.dataTransfer.files;
+                updateFileName();
+            }
+        });
+
+        fileInput.addEventListener('change', updateFileName);
+
+        function updateFileName() {
+            if (fileInput.files.length) {
+                fileName.textContent = `Selected: ${fileInput.files[0].name}`;
+                fileName.style.opacity = '1';
+            }
+        }
+    </script>
+</body>
+
+</html>

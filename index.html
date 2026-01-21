@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clip Portal | Discover</title>
+    <link rel="stylesheet" href="styles.css?v=3">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js?v=3" defer></script>
+</head>
+<body>
+    <!-- Dynamic Background -->
+    <div class="background-container">
+        <canvas id="star-canvas"></canvas>
+    </div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-panel nav-container">
+        <a href="index.html" class="nav-brand">Clip Portal</a>
+        <div class="nav-links" id="nav-links">
+            <!-- Populated by app.js?v=3 -->
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Hero / Search Section -->
+        <section class="hero-section">
+            <h1>Discover Signals</h1>
+            <p style="color: var(--text-secondary); margin-top: 10px; font-size: 1.1rem;">Explore the frequency.</p>
+            
+            <div class="search-container">
+                <input type="text" id="search-input" class="glass-input" placeholder="Search clips...">
+            </div>
+        </section>
+
+        <!-- Clips Grid -->
+        <div class="clip-grid" id="clip-grid">
+            <!-- Loading State -->
+            <div style="color:white; opacity:0.5; grid-column:span 4; text-align:center;">Initializing link...</div>
+        </div>
+    </div>
+</body>
+</html>
